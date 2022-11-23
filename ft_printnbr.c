@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printnbr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nmoreira <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: antoda-s <antoda-s@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 13:42:55 by nmoreira          #+#    #+#             */
-/*   Updated: 2022/11/19 13:43:02 by nmoreira         ###   ########.fr       */
+/*   Created: 2022/11/23 16:47:32 by antoda-s          #+#    #+#             */
+/*   Updated: 2022/11/23 16:47:33 by antoda-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ int	ft_printnbr(int nbr)
 	if (nbr == 0)
 		len = write(1, "0", 1);
 	else
-	{	
+	{
 		str = ft_itoa(nbr);
 		len = ft_printstr(str);
 		free(str);
 		str = NULL;
-	}	
+	}
 	return (len);
 }

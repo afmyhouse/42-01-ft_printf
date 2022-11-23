@@ -1,39 +1,44 @@
-# DIRECTORIES = $(wildcard */.)
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: antoda-s <antoda-s@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/23 16:48:10 by antoda-s          #+#    #+#              #
+#    Updated: 2022/11/23 17:00:24 by antoda-s         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-# all:
-# 	@echo $(DIRECTORIES)
-# Todos os subdirectórios
+SRCS    = ft_printf.c ft_printhex.c ft_printnbr.c \
+          ft_printptr.c ft_printuint.c ft_print_utils.c
+
+OBJS    = ${SRCS:.c=.o}
+
+CFLAGS  = -Wall -Wextra -Werror
+CC      = cc
+RM      = rm -f
+AR      = ar rcs
+LIBFT   = libft
+INC     = -I .
+
+NAME    = libftprintf.a
 
 
-CFLAGS	= -Wall -Wextra -Werror
-CC	= cc
-RM	= rm -f
-AR	= ar rcs
-LIBFT	= libft
-INC	= -I .
+all:		${NAME}
 
-NAME	= libftprintf.a
-
-SRCS	= ft_printf.c ft_printhex.c ft_printnbr.c \
-	  ft_printptr.c ft_printuint.c ft_print_utils.c
-
-OBJS	= ${SRCS:.c=.o}
-
-all: ${NAME}
-
-${NAME}:${OBJS}
-	${AR} $@ $^
+${NAME}:	${OBJS}
+			${AR} $@ $^
 
 %.o:%.c
-	${CC} ${CFLAGS} ${INC} -c $< -o $@
+			${CC} ${CFLAGS} ${INC} -c $< -o $@
 
 clean:
-	${RM} ${OBJS}
+			${RM} ${OBJS}
 
-fclean: clean
-	${RM} ${NAME}
+fclean:		clean
+			${RM} ${NAME}
 
-re: fclean all
+re:			fclean all
 
-.PHONY: re clean fclean all
-
+.PHONY:		re clean fclean all
