@@ -1,3 +1,4 @@
+#teste1 fork
 NAME = libftprintf.a
 
 CC = cc
