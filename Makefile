@@ -1,3 +1,4 @@
+#teste1
 NAME = libftprintf.a
 
 CC = cc
